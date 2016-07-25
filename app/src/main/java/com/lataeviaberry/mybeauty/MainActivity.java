@@ -1,5 +1,6 @@
 package com.lataeviaberry.mybeauty;
 
+
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -9,18 +10,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+
 public class MainActivity extends AppCompatActivity {
-    private Button mFindBeautyButton;
-    private EditText mZipCodeEditText;
-    private TextView mAppNameTextView;
+    @Bind(R.id.findBeautyButton) Button mFindBeautyButton;
+    @Bind(R.id.zipCodeEditText) EditText mZipCodeEditText;
+    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mZipCodeEditText = (EditText) findViewById(R.id.zipCodeEditText);
-        mFindBeautyButton = (Button) findViewById(R.id.findBeautyButton);
-        mAppNameTextView = (TextView) findViewById(R.id.appNameTextView);
+        ButterKnife.bind(this);
+
         Typeface madisonSquare = Typeface.createFromAsset(getAssets(), "fonts/madison-square/madison-square.ttf");
         mAppNameTextView.setTypeface(madisonSquare);
         mFindBeautyButton.setOnClickListener(new View.OnClickListener() {
