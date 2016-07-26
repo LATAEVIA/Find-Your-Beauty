@@ -10,14 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.findBeautyButton) Button mFindBeautyButton;
-    @BindView(R.id.zipCodeEditText) EditText mZipCodeEditText;
-    @BindView(R.id.appNameTextView) TextView mAppNameTextView;
+    @Bind(R.id.findBeautyButton)
+    Button mFindBeautyButton;
+    @Bind(R.id.zipCodeEditText)
+    EditText mZipCodeEditText;
+    @Bind(R.id.appNameTextView)
+    TextView mAppNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

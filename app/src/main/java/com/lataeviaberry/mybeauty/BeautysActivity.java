@@ -10,14 +10,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
-//import butterknife.Bind;
-
 public class BeautysActivity extends AppCompatActivity {
-    @BindView(R.id.listView)TextView mZipCodeTextView;
-    @BindView(R.id.zipCodeTextView) ListView mListView;
+    @Bind(R.id.listView)
+    TextView mZipCodeTextView;
+    @Bind(R.id.zipCodeTextView)
+    ListView mListView;
     private String[] beautys = new String[] {"Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon", "Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon", "Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon"};
 
     @Override
