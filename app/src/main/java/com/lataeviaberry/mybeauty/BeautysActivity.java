@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,6 +24,7 @@ public class BeautysActivity extends AppCompatActivity {
     public static final String TAG = BeautysActivity.class.getSimpleName();
     @Bind(R.id.listView) ListView mListView;
     @Bind(R.id.zipCodeTextView) TextView mZipCodeTextView;
+    public ArrayList<Beauty> mBeautys =  new ArrayList<>();
     private String[] beautys = new String[] {"Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon", "Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon", "Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon"};
 
     @Override
@@ -62,7 +64,10 @@ public class BeautysActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 try {
                     String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
+                    if (response.isSuccessful()) {
+                        Log.v(TAG, jsonData);
+                        mBeautys = yelpService.processResults(response);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
