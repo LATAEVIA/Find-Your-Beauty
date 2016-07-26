@@ -15,8 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BeautysActivity"></activity>
+        <activity android:name=".BeautysActivity">
+            <meta-data
+                android:name="android.support.PARENT.ACTIVITY"
+                android:value="com.lataeviaberry.mybeauty.MainActivity">
 
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>

@@ -14,10 +14,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class BeautysActivity extends AppCompatActivity {
-    @Bind(R.id.listView)
-    TextView mZipCodeTextView;
-    @Bind(R.id.zipCodeTextView)
-    ListView mListView;
+    @Bind(R.id.listView) ListView mListView;
+    @Bind(R.id.zipCodeTextView) TextView mZipCodeTextView;
     private String[] beautys = new String[] {"Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon", "Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon", "Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon"};
 
     @Override
