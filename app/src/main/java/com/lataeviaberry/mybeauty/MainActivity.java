@@ -14,7 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.findBeautyButton)
     Button mFindBeautyButton;
     @Bind(R.id.zipCodeEditText)
@@ -30,14 +30,16 @@ public class MainActivity extends AppCompatActivity {
 
         Typeface madisonSquare = Typeface.createFromAsset(getAssets(), "fonts/madison-square.ttf");
         mAppNameTextView.setTypeface(madisonSquare);
-        mFindBeautyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                String zipCode = mZipCodeEditText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, BeautysActivity.class);
-                intent.putExtra("zipCode", zipCode);
-                startActivity(intent);
-            }
-        });
+        mFindBeautyButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mFindBeautyButton) {
+            String zipCode = mZipCodeEditText.getText().toString();
+            Intent intent = new Intent(MainActivity.this, BeautysActivity.class);
+            intent.putExtra("zipCode", zipCode);
+            startActivity(intent);
+        }
     }
 }
