@@ -10,14 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity {
-    @Bind(R.id.findBeautyButton) Button mFindBeautyButton;
-    @Bind(R.id.zipCodeEditText) EditText mZipCodeEditText;
-    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
+    @BindView(R.id.findBeautyButton) Button mFindBeautyButton;
+    @BindView(R.id.zipCodeEditText) EditText mZipCodeEditText;
+    @BindView(R.id.appNameTextView) TextView mAppNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Typeface madisonSquare = Typeface.createFromAsset(getAssets(), "fonts/madison-square/madison-square.ttf");
+        Typeface madisonSquare = Typeface.createFromAsset(getAssets(), "fonts/madison-square.ttf");
         mAppNameTextView.setTypeface(madisonSquare);
         mFindBeautyButton.setOnClickListener(new View.OnClickListener() {
             @Override
