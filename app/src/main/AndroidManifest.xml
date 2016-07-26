@@ -8,18 +8,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BeautysActivity">
+        <activity
+            android:name=".BeautysActivity"
+            <!--Had to add below line to make up arrow visable-->
+            android:parentActivityName="com.lataeviaberry.mybeauty.MainActivity">
             <meta-data
                 android:name="android.support.PARENT.ACTIVITY"
                 android:value="com.lataeviaberry.mybeauty.MainActivity">
-
             </meta-data>
         </activity>
     </application>
