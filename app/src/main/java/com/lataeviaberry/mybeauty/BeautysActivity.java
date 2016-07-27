@@ -70,6 +70,10 @@ public class BeautysActivity extends AppCompatActivity {
                        String[] beautyNames = new String[mBeautys.size()];
                        for (int i = 0; i < beautyNames.length; i++) {
                            beautyNames[i] = mBeautys.get(i).getName();
+                       }
+                       ArrayAdapter adapter = new ArrayAdapter(BeautysActivity.this,
+                               android.R.layout.simple_list_item_1, beautyNames);
+                       mListView.setAdapter(adapter);
                    }
 
                 });
