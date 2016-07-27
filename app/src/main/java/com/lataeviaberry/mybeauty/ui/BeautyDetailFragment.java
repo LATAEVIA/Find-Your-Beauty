@@ -10,7 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.lataeviaberry.mybeauty.Constants;
 import com.lataeviaberry.mybeauty.R;
 import com.lataeviaberry.mybeauty.models.Beauty;
 import com.squareup.picasso.Picasso;
@@ -71,6 +75,10 @@ public class BeautyDetailFragment extends Fragment implements View.OnClickListen
 
         mWebsiteLabel.setOnClickListener(this);
         mPhoneLabel.setOnClickListener(this);
+        mAddressLabel.setOnClickListener(this);
+
+        mSaveBeautyButton.setOnClickListener(this);
+
         return view;
     }
 
@@ -92,6 +100,13 @@ public class BeautyDetailFragment extends Fragment implements View.OnClickListen
                             + "," + mBeauty.getLongitude()
                             + "?q=(" + mBeauty.getName() + ")"));
             startActivity(mapIntent);
+        }
+        if (v == mSaveBeautyButton) {
+            DatabaseReference beautyRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_BEAUTYS);
+            beautyRef.push().setValue(mBeauty);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }

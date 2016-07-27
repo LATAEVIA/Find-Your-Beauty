@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void saveLocationToFirebase(String location) {
         mSearchedLocationReference.push().setValue(location);
     }
-    
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
