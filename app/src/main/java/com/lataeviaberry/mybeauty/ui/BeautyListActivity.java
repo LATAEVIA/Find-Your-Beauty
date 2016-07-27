@@ -1,14 +1,11 @@
 package com.lataeviaberry.mybeauty.ui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.lataeviaberry.mybeauty.Constants;
 import com.lataeviaberry.mybeauty.R;
 import com.lataeviaberry.mybeauty.adapter.BeautyListAdapter;
 import com.lataeviaberry.mybeauty.models.Beauty;
@@ -24,9 +21,9 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class BeautyListActivity extends AppCompatActivity {
-    private SharedPreferences mSharedPreferences;
-    private String mRecentAddress;
-    public static final String TAG = BeautyListActivity.class.getSimpleName();
+//    private SharedPreferences mSharedPreferences;
+//    private String mRecentAddress;
+//    public static final String TAG = BeautyListActivity.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private BeautyListAdapter mAdapter;
@@ -43,11 +40,11 @@ public class BeautyListActivity extends AppCompatActivity {
         String zipCode = intent.getStringExtra("zipCode");
         getBeautys(zipCode);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        if (mRecentAddress != null) {
-            getBeautys(mRecentAddress);
-        }
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+//        if (mRecentAddress != null) {
+//            getBeautys(mRecentAddress);
+//        }
     }
 
     private void getBeautys(String zipCode) {
