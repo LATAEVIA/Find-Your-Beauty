@@ -3,10 +3,13 @@ package com.lataeviaberry.mybeauty.ui;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
+import com.lataeviaberry.mybeauty.Constants;
 import com.lataeviaberry.mybeauty.R;
 import com.lataeviaberry.mybeauty.adapter.BeautyListAdapter;
 import com.lataeviaberry.mybeauty.models.Beauty;
@@ -41,6 +44,9 @@ public class BeautyListActivity extends AppCompatActivity {
         String zipCode = intent.getStringExtra("zipCode");
         getBeautys(zipCode);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        Log.d("Shared Pref Location", mRecentAddress);
     }
 
     private void getBeautys(String zipCode) {
