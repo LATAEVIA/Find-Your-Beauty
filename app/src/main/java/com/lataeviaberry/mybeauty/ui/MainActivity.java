@@ -17,12 +17,9 @@ import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.findBeautyButton)
-    Button mFindBeautyButton;
-    @Bind(R.id.zipCodeEditText)
-    EditText mZipCodeEditText;
-    @Bind(R.id.appNameTextView)
-    TextView mAppNameTextView;
+    @Bind(R.id.findBeautyButton) Button mFindBeautyButton;
+    @Bind(R.id.zipCodeEditText) EditText mZipCodeEditText;
+    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

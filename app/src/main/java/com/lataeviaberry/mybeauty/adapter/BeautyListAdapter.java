@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.lataeviaberry.mybeauty.R;
 import com.lataeviaberry.mybeauty.models.Beauty;
+import com.lataeviaberry.mybeauty.ui.BeautyDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -21,7 +22,10 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.BeautyViewHolder> implements View.OnClickListener {
+public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.BeautyViewHolder> {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+
     private ArrayList<Beauty> mBeautys = new ArrayList<>();
     private Context mContext;
 
@@ -46,7 +50,7 @@ public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.Be
         return mBeautys.size();
     }
 
-    public class BeautyViewHolder extends RecyclerView.ViewHolder {
+    public class BeautyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.beautyImageView) ImageView mBeautyImageView;
         @Bind(R.id.beautyNameTextView) TextView mNameTextView;
         @Bind(R.id.categoryTextView) TextView mCategoryTextView;
@@ -70,7 +74,11 @@ public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.Be
         }
 
         public void bindBeauty(Beauty beauty) {
-            Picasso.with(mContext).load(beauty.getImageUrl()).into(mBeautyImageView);
+            Picasso.with(mContext)
+                    .load(beauty.getImageUrl())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mBeautyImageView);
             mNameTextView.setText(beauty.getName());
             mCategoryTextView.setText(beauty.getCategories().get(0));
             mRatingTextView.setText("Rating: " + beauty.getRating() + "/5");

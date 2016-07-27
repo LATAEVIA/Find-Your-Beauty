@@ -25,12 +25,13 @@ public class Beauty {
         this.mPhone = phone;
         this.mWebsite = website;
         this.mRating = rating;
-        this.mImageUrl = imageUrl;
+        mImageUrl = getLargeImageUrl(imageUrl);
         this.mAddress = address;
         this.mLatitude = latitude;
         this.mLongitude = longitude;
         this.mCategories = categories;
-    }public String getName() {
+    }
+    public String getName() {
         return mName;
     }
 
@@ -64,5 +65,9 @@ public class Beauty {
 
     public ArrayList<String> getCategories() {
         return mCategories;
+    }
+    public String getLargeImageUrl(String imageUrl) {
+        String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
+        return largeImageUrl;
     }
 }
