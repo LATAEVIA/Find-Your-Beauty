@@ -4,22 +4,28 @@ package com.lataeviaberry.mybeauty.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.lataeviaberry.mybeauty.R;
 import com.lataeviaberry.mybeauty.models.Beauty;
+import com.lataeviaberry.mybeauty.ui.BeautyDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-<<<<<<< HEAD
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.BeautyViewHolder> implements View.OnClickListener {
-=======
 public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.BeautyViewHolder> {
->>>>>>> parent of 7f31a0a... add view holder and add add the remaining three methods required by the RecyclerView.Adapter: onCreateViewHolder(), onBindViewHolder(), and getItemCount():
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+
     private ArrayList<Beauty> mBeautys = new ArrayList<>();
     private Context mContext;
 
@@ -27,7 +33,6 @@ public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.Be
         mContext = context;
         mBeautys = beautys;
     }
-<<<<<<< HEAD
     @Override
     public BeautyListAdapter.BeautyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.beauty_list_item, parent, false);
@@ -45,7 +50,7 @@ public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.Be
         return mBeautys.size();
     }
 
-    public class BeautyViewHolder extends RecyclerView.ViewHolder {
+    public class BeautyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.beautyImageView) ImageView mBeautyImageView;
         @Bind(R.id.beautyNameTextView) TextView mNameTextView;
         @Bind(R.id.categoryTextView) TextView mCategoryTextView;
@@ -69,13 +74,14 @@ public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.Be
         }
 
         public void bindBeauty(Beauty beauty) {
-            Picasso.with(mContext).load(beauty.getImageUrl()).into(mBeautyImageView);
+            Picasso.with(mContext)
+                    .load(beauty.getImageUrl())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mBeautyImageView);
             mNameTextView.setText(beauty.getName());
             mCategoryTextView.setText(beauty.getCategories().get(0));
             mRatingTextView.setText("Rating: " + beauty.getRating() + "/5");
         }
     }
 }
-=======
-}
->>>>>>> parent of 7f31a0a... add view holder and add add the remaining three methods required by the RecyclerView.Adapter: onCreateViewHolder(), onBindViewHolder(), and getItemCount():
