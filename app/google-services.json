@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "282628868911",
+    "firebase_url": "https://my-beauty-4fbee.firebaseio.com",
+    "project_id": "my-beauty-4fbee",
+    "storage_bucket": "my-beauty-4fbee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282628868911:android:9df29ab6e8d2887e",
+        "android_client_info": {
+          "package_name": "com.lataeviaberry.mybeauty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282628868911-jmaqmr6vubvaia5ia0qjkr0ksfh30pd4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lataeviaberry.mybeauty",
+            "certificate_hash": "87E29DF1C660CA2DEFEDD92D02CC30D5EEEFB2EF"
+          }
+        },
+        {
+          "client_id": "282628868911-l02le920j3dl9vccbdujs78h16qvn1v1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY6HLipBUs1qV5614Qfi60EFNkxbmfi5o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "282628868911-l02le920j3dl9vccbdujs78h16qvn1v1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
