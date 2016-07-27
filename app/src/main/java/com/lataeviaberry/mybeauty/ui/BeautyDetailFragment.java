@@ -1,6 +1,8 @@
 package com.lataeviaberry.mybeauty.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,7 +23,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BeautyDetailFragment extends Fragment {
+public class BeautyDetailFragment extends Fragment implements View.OnClickListener{
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
 
@@ -67,6 +69,29 @@ public class BeautyDetailFragment extends Fragment {
         mPhoneLabel.setText(mBeauty.getPhone());
         mAddressLabel.setText(android.text.TextUtils.join(", ", mBeauty.getAddress()));
 
+        mWebsiteLabel.setOnClickListener(this);
+        mPhoneLabel.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mWebsiteLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mBeauty.getWebsite()));
+            startActivity(webIntent);
+        }
+        if (v == mPhoneLabel) {
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+                    Uri.parse("tel:" + mBeauty.getPhone()));
+            startActivity(phoneIntent);
+        }
+        if (v == mAddressLabel) {
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("geo:" + mBeauty.getLatitude()
+                            + "," + mBeauty.getLongitude()
+                            + "?q=(" + mBeauty.getName() + ")"));
+            startActivity(mapIntent);
+        }
     }
 }
