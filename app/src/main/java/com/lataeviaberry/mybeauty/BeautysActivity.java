@@ -3,7 +3,6 @@ package com.lataeviaberry.mybeauty;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -61,16 +60,17 @@ public class BeautysActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    if (response.isSuccessful()) {
-                        Log.v(TAG, jsonData);
-                        mBeautys = yelpService.processResults(response);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            public void onResponse(Call call, Response response) {
+                mBeautys = yelpService.processResults(response);
+
+                BeautysActivity.this.runOnUiThread(new Runnable() {
+
+                   @Override
+                   public void run() {
+                       
+                   }
+
+                });
             }
         });
     }
