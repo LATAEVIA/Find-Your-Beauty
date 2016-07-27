@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == mFindBeautyButton) {
             String zipCode = mZipCodeEditText.getText().toString();
-            Intent intent = new Intent(MainActivity.this, BeautysActivity.class);
+            Intent intent = new Intent(MainActivity.this, BeautyListActivity.class);
             intent.putExtra("zipCode", zipCode);
             startActivity(intent);
         }

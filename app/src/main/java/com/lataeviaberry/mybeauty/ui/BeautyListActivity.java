@@ -20,8 +20,8 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class BeautysActivity extends AppCompatActivity {
-    public static final String TAG = BeautysActivity.class.getSimpleName();
+public class BeautyListActivity extends AppCompatActivity {
+    public static final String TAG = BeautyListActivity.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private BeautyListAdapter mAdapter;
@@ -53,14 +53,14 @@ public class BeautysActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 mBeautys = yelpService.processResults(response);
 
-                BeautysActivity.this.runOnUiThread(new Runnable() {
+                BeautyListActivity.this.runOnUiThread(new Runnable() {
 
                    @Override
                    public void run() {
                        mAdapter = new BeautyListAdapter(getApplicationContext(), mBeautys);
                        mRecyclerView.setAdapter(mAdapter);
                        RecyclerView.LayoutManager layoutManager =
-                               new LinearLayoutManager(BeautysActivity.this);
+                               new LinearLayoutManager(BeautyListActivity.this);
                        mRecyclerView.setLayoutManager(layoutManager);
                        mRecyclerView.setHasFixedSize(true);
                    }

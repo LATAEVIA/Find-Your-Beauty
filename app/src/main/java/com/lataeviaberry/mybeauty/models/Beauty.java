@@ -1,7 +1,10 @@
 package com.lataeviaberry.mybeauty.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 
+@Parcel
 public class Beauty {
     private String mName;
     private String mPhone;
@@ -12,6 +15,8 @@ public class Beauty {
     private double mLatitude;
     private double mLongitude;
     private ArrayList<String> mCategories = new ArrayList<>();
+
+    public Beauty() {}
 
     public Beauty(String name, String phone, String website,
                   double rating, String imageUrl, ArrayList<String> address,
