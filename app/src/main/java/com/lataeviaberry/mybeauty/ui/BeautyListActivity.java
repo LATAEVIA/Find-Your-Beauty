@@ -7,7 +7,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.lataeviaberry.mybeauty.Constants;
 import com.lataeviaberry.mybeauty.R;
@@ -46,7 +45,9 @@ public class BeautyListActivity extends AppCompatActivity {
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        Log.d("Shared Pref Location", mRecentAddress);
+        if (mRecentAddress != null) {
+            getBeautys(mRecentAddress);
+        }
     }
 
     private void getBeautys(String zipCode) {
