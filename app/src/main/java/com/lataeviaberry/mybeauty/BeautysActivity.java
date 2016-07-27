@@ -67,7 +67,9 @@ public class BeautysActivity extends AppCompatActivity {
 
                    @Override
                    public void run() {
-                       
+                       String[] beautyNames = new String[mBeautys.size()];
+                       for (int i = 0; i < beautyNames.length; i++) {
+                           beautyNames[i] = mBeautys.get(i).getName();
                    }
 
                 });
