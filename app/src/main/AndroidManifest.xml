@@ -24,9 +24,10 @@
             android:parentActivityName=".ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT.ACTIVITY"
-                android:value="com.lataeviaberry.mybeauty.MainActivity"></meta-data>
+                android:value="com.lataeviaberry.mybeauty.MainActivity" />
         </activity>
-        <activity android:name=".ui.BeautyDetailActivity"></activity>
+        <activity android:name=".ui.BeautyDetailActivity" />
+        <activity android:name=".ui.SavedBeautyListActivity"></activity>
     </application>
 
 </manifest>
