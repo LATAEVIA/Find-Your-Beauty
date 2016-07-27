@@ -30,7 +30,8 @@ public class Beauty {
         this.mLatitude = latitude;
         this.mLongitude = longitude;
         this.mCategories = categories;
-    }public String getName() {
+    }
+    public String getName() {
         return mName;
     }
 
