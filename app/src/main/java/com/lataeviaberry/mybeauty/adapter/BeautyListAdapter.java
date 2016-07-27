@@ -4,13 +4,7 @@ package com.lataeviaberry.mybeauty.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.lataeviaberry.mybeauty.R;
 import com.lataeviaberry.mybeauty.models.Beauty;
 import com.squareup.picasso.Picasso;
 
@@ -18,10 +12,14 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.BeautyViewHolder> implements View.OnClickListener {
+=======
+public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.BeautyViewHolder> {
+>>>>>>> parent of 7f31a0a... add view holder and add add the remaining three methods required by the RecyclerView.Adapter: onCreateViewHolder(), onBindViewHolder(), and getItemCount():
     private ArrayList<Beauty> mBeautys = new ArrayList<>();
     private Context mContext;
 
@@ -29,6 +27,7 @@ public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.Be
         mContext = context;
         mBeautys = beautys;
     }
+<<<<<<< HEAD
     @Override
     public BeautyListAdapter.BeautyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.beauty_list_item, parent, false);
@@ -77,3 +76,6 @@ public class BeautyListAdapter extends RecyclerView.Adapter<BeautyListAdapter.Be
         }
     }
 }
+=======
+}
+>>>>>>> parent of 7f31a0a... add view holder and add add the remaining three methods required by the RecyclerView.Adapter: onCreateViewHolder(), onBindViewHolder(), and getItemCount():
