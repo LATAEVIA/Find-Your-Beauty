@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BeautysActivity"
-            android:parentActivityName="com.lataeviaberry.mybeauty.MainActivity">
+            android:name=".ui.BeautysActivity"
+            android:parentActivityName=".ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT.ACTIVITY"
                 android:value="com.lataeviaberry.mybeauty.MainActivity">

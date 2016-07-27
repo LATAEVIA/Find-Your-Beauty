@@ -1,4 +1,7 @@
-package com.lataeviaberry.mybeauty;
+package com.lataeviaberry.mybeauty.services;
+
+import com.lataeviaberry.mybeauty.Constants;
+import com.lataeviaberry.mybeauty.models.Beauty;
 
 import org.json.JSONArray;
 import org.json.JSONException;

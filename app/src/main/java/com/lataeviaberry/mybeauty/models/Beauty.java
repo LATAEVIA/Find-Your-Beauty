@@ -1,4 +1,4 @@
-package com.lataeviaberry.mybeauty;
+package com.lataeviaberry.mybeauty.models;
 
 import java.util.ArrayList;
 

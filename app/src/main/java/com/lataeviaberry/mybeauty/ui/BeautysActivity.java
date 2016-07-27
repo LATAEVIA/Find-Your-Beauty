@@ -1,14 +1,16 @@
-package com.lataeviaberry.mybeauty;
+package com.lataeviaberry.mybeauty.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.lataeviaberry.mybeauty.R;
+import com.lataeviaberry.mybeauty.models.Beauty;
+import com.lataeviaberry.mybeauty.services.YelpService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,24 +26,12 @@ public class BeautysActivity extends AppCompatActivity {
     @Bind(R.id.listView) ListView mListView;
     @Bind(R.id.zipCodeTextView) TextView mZipCodeTextView;
     public ArrayList<Beauty> mBeautys =  new ArrayList<>();
-    private String[] beautys = new String[] {"Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon", "Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon", "Nail Shop", "Hair Salon", "Organic Spa", "Massage Therapist", "Waxing Salon"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beautys);
         ButterKnife.bind(this);
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, beautys);
-        mListView.setAdapter(adapter);
-
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String beauty = ((TextView)view).getText().toString();
-                Toast.makeText(BeautysActivity.this, beauty, Toast.LENGTH_LONG).show();
-            }
-        });
 
         Intent intent = getIntent();
         String zipCode = intent.getStringExtra("zipCode");
@@ -74,8 +64,18 @@ public class BeautysActivity extends AppCompatActivity {
                        ArrayAdapter adapter = new ArrayAdapter(BeautysActivity.this,
                                android.R.layout.simple_list_item_1, beautyNames);
                        mListView.setAdapter(adapter);
-                   }
 
+                       for (Beauty restaurant : mBeautys) {
+                           Log.d(TAG, "Name: " + restaurant.getName());
+                           Log.d(TAG, "Phone: " + restaurant.getPhone());
+                           Log.d(TAG, "Website: " + restaurant.getWebsite());
+                           Log.d(TAG, "Image url: " + restaurant.getImageUrl());
+                           Log.d(TAG, "Rating: " + Double.toString(restaurant.getRating()));
+                           Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", restaurant.getAddress()));
+                           Log.d(TAG, "Categories: " + restaurant.getCategories().toString());
+
+                       }
+                   }
                 });
             }
         });
