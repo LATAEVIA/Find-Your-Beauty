@@ -3,12 +3,11 @@ package com.lataeviaberry.mybeauty.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.lataeviaberry.mybeauty.R;
+import com.lataeviaberry.mybeauty.adapter.BeautyListAdapter;
 import com.lataeviaberry.mybeauty.models.Beauty;
 import com.lataeviaberry.mybeauty.services.YelpService;
 
@@ -23,8 +22,10 @@ import okhttp3.Response;
 
 public class BeautysActivity extends AppCompatActivity {
     public static final String TAG = BeautysActivity.class.getSimpleName();
-    @Bind(R.id.listView) ListView mListView;
-    @Bind(R.id.zipCodeTextView) TextView mZipCodeTextView;
+
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private BeautyListAdapter mAdapter;
+
     public ArrayList<Beauty> mBeautys =  new ArrayList<>();
 
     @Override
@@ -35,7 +36,6 @@ public class BeautysActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String zipCode = intent.getStringExtra("zipCode");
-        mZipCodeTextView.setText("Beauty near: " + zipCode);
         getBeautys(zipCode);
 
     }
@@ -57,24 +57,12 @@ public class BeautysActivity extends AppCompatActivity {
 
                    @Override
                    public void run() {
-                       String[] beautyNames = new String[mBeautys.size()];
-                       for (int i = 0; i < beautyNames.length; i++) {
-                           beautyNames[i] = mBeautys.get(i).getName();
-                       }
-                       ArrayAdapter adapter = new ArrayAdapter(BeautysActivity.this,
-                               android.R.layout.simple_list_item_1, beautyNames);
-                       mListView.setAdapter(adapter);
-
-                       for (Beauty restaurant : mBeautys) {
-                           Log.d(TAG, "Name: " + restaurant.getName());
-                           Log.d(TAG, "Phone: " + restaurant.getPhone());
-                           Log.d(TAG, "Website: " + restaurant.getWebsite());
-                           Log.d(TAG, "Image url: " + restaurant.getImageUrl());
-                           Log.d(TAG, "Rating: " + Double.toString(restaurant.getRating()));
-                           Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", restaurant.getAddress()));
-                           Log.d(TAG, "Categories: " + restaurant.getCategories().toString());
-
-                       }
+                       mAdapter = new BeautyListAdapter(getApplicationContext(), mBeautys);
+                       mRecyclerView.setAdapter(mAdapter);
+                       RecyclerView.LayoutManager layoutManager =
+                               new LinearLayoutManager(BeautysActivity.this);
+                       mRecyclerView.setLayoutManager(layoutManager);
+                       mRecyclerView.setHasFixedSize(true);
                    }
                 });
             }
