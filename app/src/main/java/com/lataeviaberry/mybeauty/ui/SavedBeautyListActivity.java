@@ -20,8 +20,7 @@ public class SavedBeautyListActivity extends AppCompatActivity {
     private DatabaseReference mBeautyReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
 
-    @Bind(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

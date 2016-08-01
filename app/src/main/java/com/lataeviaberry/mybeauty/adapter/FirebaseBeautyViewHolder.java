@@ -56,7 +56,7 @@ public class FirebaseBeautyViewHolder extends RecyclerView.ViewHolder implements
     @Override
     public void onClick(View view) {
         final ArrayList<Beauty> beautys = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_BEAUTYS);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override

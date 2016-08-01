@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ValueEventListener mSearchedLocationReferenceListener;
     @Bind(R.id.findBeautyButton) Button mFindBeautyButton;
     @Bind(R.id.zipCodeEditText) EditText mZipCodeEditText;
-    @Bind(R.id.appNameTextView)
-    TextView mAppNameTextView;
+    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
+    @Bind(R.id.savedBeautysButton) Button mSavedBeautysButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        mEditor = mSharedPreferences.edit();
 
         mFindBeautyButton.setOnClickListener(this);
+        mSavedBeautysButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -79,6 +81,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            }
             Intent intent = new Intent(MainActivity.this, BeautyListActivity.class);
             intent.putExtra("zipCode", zipCode);
+            startActivity(intent);
+        }
+
+        if (v == mSavedBeautysButton) {
+            Intent intent = new Intent(MainActivity.this, SavedBeautyListActivity.class);
             startActivity(intent);
         }
     }
