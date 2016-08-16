@@ -8,14 +8,6 @@
 
 _An Android application that allows users to lookup businesses that offer beauty services by zip code._
 
-_Plan on adding the following features:_
-* Implement Firebase user authentication.
-* Save and retrieve data using Firebase.
-* Employ the Firebase-RecyclerAdapter to display from database.
-* Use SharedPreferences.
-* Utilize dialogs to inform users of errors, login status, etc.
-* Use a SearchView widget to gather user input.
-
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
@@ -33,6 +25,14 @@ You will need the following things properly installed on your computer.
 * Choose recently cloned folder
 * Load Nexus 6 in emulator
 * Run app
+
+## Upcoming Features
+* Implement Firebase user authentication.
+* Save and retrieve data using Firebase.
+* Employ the Firebase-RecyclerAdapter to display from database.
+* Use SharedPreferences.
+* Utilize dialogs to inform users of errors, login status, etc.
+* Use a SearchView widget to gather user input.
 
 ## Technologies Used
 
